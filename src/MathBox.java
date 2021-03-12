@@ -1,10 +1,10 @@
 
 import java.util.*;
 
-public class MathBox {
-    List<Integer> numbers = new ArrayList<>();
+public class MathBox<t> {
+    List<Number> numbers = new ArrayList<>();
 
-    public List<Integer> mathbox() {
+    public List<Number> mathbox() {
         for (int i = 0; i < 10; i++) {
             numbers.addAll(Collections.singleton(i));
         }
@@ -14,19 +14,19 @@ public class MathBox {
     public int summer() {
         int sum = 0;
         for (int i = 0; i < numbers.size(); i++) {
-            sum += numbers.get(i);
+            sum +=(int) numbers.get(i);
         }
         return sum;
     }
 
-    public List<Integer> splitter() {
+    public List<Number> splitter() {
         int div = 0;
         for (int i = 0; i < numbers.size(); i++) {
-            numbers.set(i, numbers.get(i) / 2);
+            numbers.set(i,(int) numbers.get(i) / 2);
         }
         return numbers;
     }
-    public List<Integer> input(){
+    public List<Number> input(){
         Scanner scanner=new Scanner(System.in);
         int a=scanner.nextInt();
         for (Number n:numbers){
