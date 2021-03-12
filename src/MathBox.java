@@ -6,15 +6,15 @@ public class MathBox<t> {
 
     public List<Number> mathbox() {
         for (int i = 0; i < 10; i++) {
-            numbers.addAll(Collections.singleton(i));
+            numbers.addAll(Collections.singleton((float)i));
         }
         return numbers;
     }
 
-    public int summer() {
-        int sum = 0;
+    public float summer() {
+        float sum = 0;
         for (int i = 0; i < numbers.size(); i++) {
-            sum +=(int) numbers.get(i);
+            sum +=(float) numbers.get(i);
         }
         return sum;
     }
@@ -22,7 +22,7 @@ public class MathBox<t> {
     public List<Number> splitter() {
         int div = 0;
         for (int i = 0; i < numbers.size(); i++) {
-            numbers.set(i,(int) numbers.get(i) / 2);
+            numbers.set(i,(float) numbers.get(i) / 2);
         }
         return numbers;
     }
@@ -30,7 +30,7 @@ public class MathBox<t> {
         Scanner scanner=new Scanner(System.in);
         int a=scanner.nextInt();
         for (Number n:numbers){
-            if (a == (int) n){
+            if (a == (float) n){
                 numbers.remove(n);
             }
         }
