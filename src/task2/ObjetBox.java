@@ -1,7 +1,6 @@
-package objetbox;
+package task2;
 
 import java.util.Collection;
-import java.util.Objects;
 
 public class ObjetBox {
 

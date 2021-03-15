@@ -1,4 +1,4 @@
-package MO;
+package task3;
 
 import java.util.Collection;
 import java.util.Objects;

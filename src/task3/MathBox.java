@@ -1,6 +1,6 @@
-package mathBox;
+package task3;
 
-import objetbox.ObjetBox;
+import task2.ObjetBox;
 
 import java.util.*;
 
@@ -60,4 +60,15 @@ public class MathBox<T extends Number> extends ObjetBox {
         return numbers;
     }
 
+    @Override
+    public Object addObject(Object o) throws Exception {
+        if (!(o instanceof Number)) {
+            if (!(o instanceof Number)) {
+                throw new Exception("Wrong type!");
+            } else {
+                return super.addObject(o);
+            }
+        }
+        return collection;
+    }
 }
