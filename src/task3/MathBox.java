@@ -10,15 +10,20 @@ public class MathBox<T extends Number> extends ObjetBox {
     Scanner scanner = new Scanner(System.in);
     List<Number> numbers = new ArrayList<>();
 
+    public List<Number> mathbox(T [] numberArray) {
+        Integer a=100;
+        Short s=101;
+        Long l=4l;
+        Byte b=127;
+        Float f=102.1F;
+        Double d=103.4D;
 
-    public MathBox(List<Number> numbers) {
-    }
-
-    public List<Number> mathbox() {
-        for (int i = 0; i < 10; i++) {
-            int a = (int) (Math.random() * 10 - 5);
-            numbers.add(a);
-        }
+        numbers.add(d);
+        numbers.add(f);
+        numbers.add(b);
+        numbers.add(l);
+        numbers.add(a);
+        numbers.add(s);
         HashSet hs = new HashSet();
         hs.addAll(numbers);
         numbers.clear();
@@ -28,18 +33,22 @@ public class MathBox<T extends Number> extends ObjetBox {
     }
 
     public double summer() {
-        int sum = 0;
-        for (int i = 0; i < numbers.size(); i++) {
-            sum += (int) numbers.get(i);
+        double sum=0;
+        for (Number n:numbers) {
+            if (!(n instanceof Integer|| n instanceof Short|| n instanceof Long
+                    ||n instanceof Byte|| n instanceof Float|| n instanceof Double)){
+                throw new IllegalArgumentException();
+                }
+            sum+=n.longValue();
         }
         return sum;
     }
 
-    public List<Number> splitter(int div) {
+    public List<Number> splitter(T div) {
 //        div=scanner.nextInt();
         try {
-            for (int i = 0; i < numbers.size(); i++) {
-                numbers.set(i, (int) numbers.get(i) / div);
+            for (int i=0;i<numbers.size();i++) {
+                numbers.set(i,numbers.get(i).doubleValue() / div.doubleValue());
             }
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
@@ -48,8 +57,8 @@ public class MathBox<T extends Number> extends ObjetBox {
     }
 
 
-    public List<Number> input() {
-        int a = scanner.nextInt();
+    public List<Number> input(Double a) {
+
         Iterator<Number> numberIterator = numbers.iterator();
         while (numberIterator.hasNext()) {
             Number numberNext = numberIterator.next();
