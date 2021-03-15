@@ -1,3 +1,6 @@
+package mathBox;
+
+import objetbox.ObjetBox;
 
 import java.util.*;
 
@@ -8,7 +11,7 @@ public class MathBox<T extends Number> extends ObjetBox {
     List<Number> numbers = new ArrayList<>();
 
 
-    public MathBox() {
+    public MathBox(List<Number> numbers) {
     }
 
     public List<Number> mathbox() {

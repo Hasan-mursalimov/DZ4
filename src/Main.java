@@ -13,7 +13,7 @@ public class Main {
 //        ObjetBox objetBox=new ObjetBox();
         System.out.println(mathBox1.mathbox());
         System.out.println(mathBox1.summer());
-        System.out.println(mathBox1.splitter(0));
+        System.out.println(mathBox1.splitter(2));
        System.out.println(mathBox1.input());
 //        System.out.println(objetBox.getObjects());
 //        System.out.println(objetBox.deleteObject());

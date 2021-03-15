@@ -1,8 +1,11 @@
-import java.util.*;
+package objetbox;
+
+import java.util.Collection;
+import java.util.Objects;
 
 public class ObjetBox {
 
-    Collection<Object> collection;
+    public Collection<Object> collection;
 
     public ObjetBox(Collection<Object> collection) {
         this.collection = collection;
