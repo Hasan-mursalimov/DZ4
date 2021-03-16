@@ -4,19 +4,20 @@ import task2.ObjetBox;
 
 import java.util.*;
 
-public class MathBox<T extends Number> extends ObjetBox {
+public class MathBox<T extends Number> extends ObjetBox<Number> {
 
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
     List<Number> numbers = new ArrayList<>();
 
-    public List<Number> mathbox(T [] numberArray) {
-        Integer a=100;
-        Short s=101;
-        Long l=4l;
-        Byte b=127;
-        Float f=102.1F;
-        Double d=103.4D;
+
+    public List<Number> addNumber() {
+        Integer a = 100;
+        Short s = 101;
+        Long l = 4l;
+        Byte b = 127;
+        Float f = 102.1F;
+        Double d = 103.4D;
 
         numbers.add(d);
         numbers.add(f);
@@ -32,23 +33,25 @@ public class MathBox<T extends Number> extends ObjetBox {
         return numbers;
     }
 
-    public double summer() {
-        double sum=0;
-        for (Number n:numbers) {
-            if (!(n instanceof Integer|| n instanceof Short|| n instanceof Long
-                    ||n instanceof Byte|| n instanceof Float|| n instanceof Double)){
+
+
+    public double summator() {
+        double sum = 0;
+        for (Number n : numbers) {
+            if (!(n instanceof Integer || n instanceof Short || n instanceof Long
+                    || n instanceof Byte || n instanceof Float || n instanceof Double)) {
                 throw new IllegalArgumentException();
-                }
-            sum+=n.longValue();
+            }
+            sum += n.doubleValue();
         }
         return sum;
     }
 
-    public List<Number> splitter(T div) {
-//        div=scanner.nextInt();
+
+    public List<Number> splitter(Number div) {
         try {
-            for (int i=0;i<numbers.size();i++) {
-                numbers.set(i,numbers.get(i).doubleValue() / div.doubleValue());
+            for (int i = 0; i < numbers.size(); i++) {
+                numbers.set(i, numbers.get(i).doubleValue() / div.doubleValue());
             }
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
@@ -57,27 +60,30 @@ public class MathBox<T extends Number> extends ObjetBox {
     }
 
 
-    public List<Number> input(Double a) {
-
+    public void input(Integer integer) {
         Iterator<Number> numberIterator = numbers.iterator();
         while (numberIterator.hasNext()) {
             Number numberNext = numberIterator.next();
-            if (numberNext.equals(a)) {
+            if (numberNext.equals(integer)) {
                 numberIterator.remove();
             }
         }
-        return numbers;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MathBox<?> mathBox = (MathBox<?>) o;
+        return Objects.equals(random, mathBox.random) &&
+                Objects.equals(scanner, mathBox.scanner) &&
+                Objects.equals(numbers, mathBox.numbers);
     }
 
     @Override
-    public Object addObject(Object o) throws Exception {
-        if (!(o instanceof Number)) {
-            if (!(o instanceof Number)) {
-                throw new Exception("Wrong type!");
-            } else {
-                return super.addObject(o);
-            }
-        }
-        return collection;
+    public int hashCode() {
+        return Objects.hash(random, scanner, numbers);
     }
+
 }

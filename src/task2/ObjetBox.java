@@ -1,24 +1,18 @@
 package task2;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-public class ObjetBox {
+public class ObjetBox<T extends Object> {
+    List<T>collection=new ArrayList<>();
 
-    public Collection<Object> collection;
-
-    public ObjetBox(Collection<Object> collection) {
-        this.collection = collection;
+    public Object addObject(T object) throws Exception {
+        return collection.add(object);
     }
 
-    public ObjetBox() {
-    }
-
-    public Object addObject(Object o) throws Exception {
-        return collection.add(o);
-    }
-
-    public boolean deleteObject(Object o) {
-        return collection.remove(o);
+    public boolean deleteObject(T objec) {
+        return collection.remove(objec);
     }
 
     public void dump() {

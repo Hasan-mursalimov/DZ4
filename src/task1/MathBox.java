@@ -2,11 +2,10 @@ package task1;
 
 import task2.ObjetBox;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
+
 import java.util.*;
 
-public class MathBox<T extends Number> extends ObjetBox {
+public class MathBox<T extends Number>  {
 
     Random random = new Random();
     Scanner scanner = new Scanner(System.in);
@@ -16,7 +15,22 @@ public class MathBox<T extends Number> extends ObjetBox {
     public MathBox(List<Number> numbers) {
     }
 
-    public List<Number> mathbox(T [] numberArray) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MathBox<?> mathBox = (MathBox<?>) o;
+        return Objects.equals(random, mathBox.random) &&
+                Objects.equals(scanner, mathBox.scanner) &&
+                Objects.equals(numbers, mathBox.numbers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(random, scanner, numbers);
+    }
+
+    public List<Number> addNumber(){
         Integer a=100;
         Short s=101;
         Long l=4l;
@@ -37,7 +51,6 @@ public class MathBox<T extends Number> extends ObjetBox {
 
         return numbers;
     }
-
     public double summer() {
         double sum=0;
         for (Number n:numbers) {
@@ -63,15 +76,16 @@ public class MathBox<T extends Number> extends ObjetBox {
     }
 
 
-    public List<Number> input(Double a) {
+    public List<Number> input(Integer integer ) {
 
         Iterator<Number> numberIterator = numbers.iterator();
         while (numberIterator.hasNext()) {
             Number numberNext = numberIterator.next();
-            if (numberNext.equals(a)) {
+            if (numberNext.equals(integer)) {
                 numberIterator.remove();
             }
         }
         return numbers;
     }
+
 }
