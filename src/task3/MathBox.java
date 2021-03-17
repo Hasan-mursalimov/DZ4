@@ -32,7 +32,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
         }
-        super.deleteObject(2);
+
     }
 
 
@@ -44,6 +44,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
                 numberIterator.remove();
             }
         }
+        super.deleteObject(2);
     }
 
     @Override
