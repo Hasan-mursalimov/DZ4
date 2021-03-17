@@ -11,8 +11,8 @@ public class ObjetBox<T extends Object> {
         return collection.add(object);
     }
 
-    public boolean deleteObject(T objec) {
-        return collection.remove(objec);
+    public boolean deleteObject(T object) {
+        return collection.remove(object);
     }
 
     public void dump() {

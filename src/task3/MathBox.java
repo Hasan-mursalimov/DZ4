@@ -7,10 +7,11 @@ import java.util.*;
 public class MathBox<T extends Number> extends ObjetBox<Number> {
 
 
-    MathBox(T[] numbersArr) {
+    MathBox(T[] numbersArr) throws Exception {
         List<T> duplicates = getDublicat(numbersArr);
         if (duplicates.size() > 0) ;
         Collections.addAll(collection, numbersArr);
+        super.addObject(3.01);
     }
 
 
@@ -31,6 +32,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
         }
+        super.deleteObject(2);
     }
 
 
