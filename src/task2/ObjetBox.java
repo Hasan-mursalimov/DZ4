@@ -1,11 +1,11 @@
 package task2;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 public class ObjetBox<T extends Object> {
-    List<T>collection=new ArrayList<>();
+    public List<T> collection = new ArrayList<>();
 
     public Object addObject(T object) throws Exception {
         return collection.add(object);
@@ -26,5 +26,17 @@ public class ObjetBox<T extends Object> {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ObjetBox<?> objetBox = (ObjetBox<?>) o;
+        return Objects.equals(collection, objetBox.collection);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(collection);
+    }
 }
 
