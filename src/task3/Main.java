@@ -17,7 +17,7 @@ public class Main {
 
         System.out.println(mathBox1);
         System.out.println(mathBox1.summator());
-//        System.out.println(mathBox1.splitter());
+        System.out.println(mathBox1.splitter(2));
 
 
     }

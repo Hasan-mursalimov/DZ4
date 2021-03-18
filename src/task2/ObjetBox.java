@@ -6,6 +6,13 @@ import java.util.Objects;
 
 public class ObjetBox<T extends Object> {
     public List<T> collection = new ArrayList<>();
+    public ObjetBox(List<T>collection){
+        this.collection=collection;
+    }
+
+    public ObjetBox() {
+    }
+
 
     public Object addObject(T object) throws Exception {
         return collection.add(object);
