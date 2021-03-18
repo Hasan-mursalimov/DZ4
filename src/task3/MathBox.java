@@ -11,7 +11,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         List<T> duplicates = getDublicat(numbersArr);
         if (duplicates.size() > 0) ;
         Collections.addAll(collection, numbersArr);
-        super.addObject(3.01);
+        super.addObject((Number) collection);
     }
 
 
