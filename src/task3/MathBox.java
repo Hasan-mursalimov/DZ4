@@ -2,56 +2,59 @@ package task3;
 
 import task2.ObjetBox;
 
+import javax.swing.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MathBox<T extends Number> extends ObjetBox<Number> {
 
 
     MathBox(T[] numbersArr) throws Exception {
-        List<T> duplicates = getDublicat(numbersArr);
-        if (duplicates.size() > 0) ;
-        Collections.addAll(collection, numbersArr);
-        super.addObject((Number) collection);
+        Set<T> duplicates = getDublicat(numbersArr);
+        Collections.addAll(super.collection, numbersArr);
     }
 
 
     public double summator() {
         double sum = 0;
-        for (Number n : collection) {
+        for (Number n : super.collection) {
             sum += n.doubleValue();
         }
         return sum;
+
     }
 
 
-    public List<Number> splitter(T div) {
+    public Object splitter(T div) {
+
+        ArrayList<Number> filterNumbers = new ArrayList<>(collection);
         try {
-            for (int i = 0; i < collection.size(); i++) {
-                collection.set(i, collection.get(i).doubleValue() / div.doubleValue());
+            for (int i = 0; i < filterNumbers.size(); i++) {
+                filterNumbers.set(i, filterNumbers.get(i).doubleValue() / div.doubleValue());
             }
+            Set<Number> removeN = new HashSet<>(filterNumbers);
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
         }
-        return collection;
+        return filterNumbers;
     }
 
 
     public void input(Integer integer) {
-        Iterator<Number> numberIterator = collection.iterator();
-        while (numberIterator.hasNext()) {
-            Number numberNext = numberIterator.next();
-            if (numberNext.equals(integer)) {
-                numberIterator.remove();
-            }
-        }
-        super.deleteObject((Number) collection);
+        super.deleteObject(integer);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         MathBox<?> mathBox = (MathBox<?>) o;
         return Objects.equals(collection, mathBox.collection);
     }
@@ -61,19 +64,23 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         return Objects.hash(super.hashCode(), collection);
     }
 
-    private List<T> getDublicat(T[] arr) {
+    private Set<T> getDublicat(T[] arr) {
         Set<T> duplicates = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {
             T a = arr[i];
-            if (a == null) continue;
+            if (a == null) {
+                continue;
+            }
             for (int j = 0; j < arr.length; j++) {
-                if (i == j) continue;
+                if (i == j) {
+                    continue;
+                }
                 T a1 = arr[j];
                 if (a.equals(a1)) {
                     duplicates.add(a1);
                 }
             }
         }
-        return new ArrayList<>(duplicates);
+        return null;
     }
 }

@@ -1,17 +1,14 @@
 package task2;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ObjetBox<T extends Object> {
-    public List<T> collection = new ArrayList<>();
-    public ObjetBox(List<T>collection){
-        this.collection=collection;
+    public Set<T> collection = new HashSet<>();
+    public ObjetBox(){
+        this  .collection=collection;
     }
 
-    public ObjetBox() {
-    }
+
 
 
     public Object addObject(T object) throws Exception {

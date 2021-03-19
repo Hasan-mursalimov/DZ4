@@ -27,7 +27,9 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
     public void splitter(T div) {
         try {
             for (int i = 0; i < collection.size(); i++) {
-                collection.set(i, collection.get(i).doubleValue() / div.doubleValue());
+                collection.remove(i);
+                collection.add(i/div.doubleValue());
+//                collection.set(i, collection.get(i).doubleValue() / div.doubleValue());
             }
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
