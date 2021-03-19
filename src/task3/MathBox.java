@@ -2,9 +2,7 @@ package task3;
 
 import task2.ObjetBox;
 
-import javax.swing.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MathBox<T extends Number> extends ObjetBox<Number> {
 
@@ -32,7 +30,6 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
             for (int i = 0; i < filterNumbers.size(); i++) {
                 filterNumbers.set(i, filterNumbers.get(i).doubleValue() / div.doubleValue());
             }
-            Set<Number> removeN = new HashSet<>(filterNumbers);
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
         }
@@ -40,8 +37,9 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
     }
 
 
-    public void input(Integer integer) {
+    public Set<Number> input(Integer integer) {
         super.deleteObject(integer);
+        return collection;
     }
 
     @Override
