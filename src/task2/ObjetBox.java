@@ -3,12 +3,13 @@ package task2;
 import java.util.*;
 
 public class ObjetBox<T extends Object> {
-    public Set<T> collection = new HashSet<>();
-    public ObjetBox(){
-        this  .collection=collection;
+
+
+    public Set<T> collection;
+
+    public ObjetBox(Set<T> collection) {
+        this.collection = collection;
     }
-
-
 
 
     public Object addObject(T object) throws Exception {

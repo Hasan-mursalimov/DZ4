@@ -7,11 +7,10 @@ import java.util.*;
 public class MathBox<T extends Number> extends ObjetBox<Number> {
 
 
-    MathBox(T[] numbersArr) throws Exception {
-        Set<T> duplicates = getDublicat(numbersArr);
-        Collections.addAll(super.collection, numbersArr);
+    MathBox(Set<Number> numbersArr) throws Exception {
+        super(numbersArr);
+        Collections.addAll(numbersArr);
     }
-
 
     public double summator() {
         double sum = 0;
@@ -33,7 +32,8 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
         }
-        return filterNumbers;
+        Set<Number>numbers=new HashSet<>(filterNumbers);
+        return numbers;
     }
 
 

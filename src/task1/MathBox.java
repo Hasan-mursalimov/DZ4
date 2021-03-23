@@ -8,10 +8,9 @@ import java.util.*;
 public class MathBox<T extends Number> extends ObjetBox<Number> {
 
 
-    MathBox(T[] numbersArr) {
-        List<T> duplicates = getDublicat(numbersArr);
-        if (duplicates.size() > 0) ;
-        Collections.addAll(collection, numbersArr);
+    MathBox(Set<Number> numbersArr) throws Exception {
+        super(numbersArr);
+        Collections.addAll(numbersArr);
     }
 
 
