@@ -22,7 +22,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
     }
 
 
-    public Set<Number> splitter(T div) {
+    public void splitter(T div) {
 
         ArrayList<Number> filterNumbers = new ArrayList<>(collection);
         try {
@@ -32,8 +32,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         } catch (ArithmeticException ar) {
             System.out.println("ты на что то не то делишь.... давай занова" + ar.getMessage());
         }
-        collection=new HashSet<>(filterNumbers);
-        return collection;
+        collection = new HashSet<>(filterNumbers);
     }
 
 

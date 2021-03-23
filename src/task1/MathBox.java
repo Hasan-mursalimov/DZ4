@@ -27,7 +27,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
         try {
             for (int i = 0; i < collection.size(); i++) {
                 collection.remove(i);
-                collection.add(i/div.doubleValue());
+                collection.add(i / div.doubleValue());
 //                collection.set(i, collection.get(i).doubleValue() / div.doubleValue());
             }
         } catch (ArithmeticException ar) {
