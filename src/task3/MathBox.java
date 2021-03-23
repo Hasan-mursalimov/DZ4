@@ -22,7 +22,7 @@ public class MathBox<T extends Number> extends ObjetBox<Number> {
     }
 
 
-    public Object splitter(T div) {
+    public Set<Number> splitter(T div) {
 
         ArrayList<Number> filterNumbers = new ArrayList<>(collection);
         try {
